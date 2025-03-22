@@ -18,8 +18,10 @@ namespace Reservoom2.Exceptions
         {
             get;
         }
-        public ReservationConflictException()
+        public ReservationConflictException(Reservation existingReservation, Reservation incomingReservation)
         {
+            ExistingReservation = existingReservation;
+            IncomingReservation = incomingReservation;
         }
 
         public ReservationConflictException(string message) : base(message)
