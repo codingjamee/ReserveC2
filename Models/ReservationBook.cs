@@ -8,11 +8,16 @@ namespace Reservoom2.Models
 {
     public class ReservationBook
     {
-        private readonly Dictionary<RoomId, List<Reservation>> _roomsToReservations;
+        private readonly List<Reservation> _reservations;
 
         public ReservationBook()
         {
-            _roomsToReservations = new Dictionary<RoomId, List<Reservation>>();
+            _reservations = new List<Reservation>();
+        }
+
+        public IEnumerable<Reservation> GetReservationsForUser(string username)
+        {
+            return _reservations.Where(r => r.Username == username);
         }
     }
 }

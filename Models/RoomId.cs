@@ -16,6 +16,16 @@ namespace Reservoom2.Models
         {
             get;
         }
+        public RoomId(int floorNumber, int roomNumber)
+        {
+            FloorNumber = floorNumber;
+            RoomNumber = roomNumber;
+        }
+
+        public override string ToString()
+        {
+            return $"{FloorNumber} {RoomNumber}";
+        }
 
         public override bool Equals(object obj)
         {
