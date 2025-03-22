@@ -19,5 +19,10 @@ namespace Reservoom2.Models
         {
             return _reservations.Where(r => r.Username == username);
         }
+
+        public void AddReservation(Reservation reservation)
+        {
+            _reservations.Add(reservation);
+        }
     }
 }
