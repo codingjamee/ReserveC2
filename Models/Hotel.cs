@@ -25,6 +25,11 @@ namespace Reservoom2.Models
             return _reservationBook.GetReservationsForUser(username);
         }
 
+        /// <summary>
+        /// Make a Reservation.
+        /// </summary>
+        /// <exception cref="ReservationConflictException">
+        /// <param name="reservation"></param>
         public void MakeReservation(Reservation reservation)
         {
             _reservationBook.AddReservation(reservation);
