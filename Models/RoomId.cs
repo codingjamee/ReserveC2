@@ -44,5 +44,21 @@ namespace Reservoom2.Models
                 return hash;
             }
         }
+
+        public static bool operator ==(RoomId roomId1, RoomId roomId2)
+        {
+            if (roomId1 is null && roomId2 is null)
+            {
+
+                return true;
+            }
+
+            return !(roomId1 is null) && roomId1.Equals(roomId2);
+        }
+
+        public static bool operator != (RoomId roomId1, RoomId roomId2)
+        {
+            return !(roomId1 == roomId2);
+        }
     }
 }

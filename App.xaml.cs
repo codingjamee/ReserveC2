@@ -1,4 +1,5 @@
-﻿using Reservoom2.Models;
+﻿using Reservoom2.Exceptions;
+using Reservoom2.Models;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -18,18 +19,28 @@ namespace Reservoom2
         {
             Hotel hotel = new Hotel("Famous Hotel");
 
-            hotel.MakeReservation(new Reservation(
-                new RoomId(1, 3),
-                "Some Guest",
-                new DateTime(2025, 1, 1),
-                new DateTime(2025, 1, 3)));
 
-             hotel.MakeReservation(new Reservation(
-                new RoomId(1, 2),
-                "Some Guest",
-                new DateTime(2025, 1, 4),
-                new DateTime(2025, 1, 5)));
+            try
+            {
+                hotel.MakeReservation(new Reservation(
+                    new RoomId(1, 3),
+                    "Some Guest",
+                    new DateTime(2025, 1, 1),
+                    new DateTime(2025, 1, 3)));
 
+                hotel.MakeReservation(new Reservation(
+                   new RoomId(1, 3),
+                   "Some Guest",
+                   new DateTime(2025, 1, 2),
+                   new DateTime(2025, 1, 5)));
+
+            }
+
+            catch (ReservationConflictException ex)
+            {
+
+            }
+          
             IEnumerable<Reservation> reservations = hotel.GetReservationsForUser("Some Guest");
 
             base.OnStartup(e);
