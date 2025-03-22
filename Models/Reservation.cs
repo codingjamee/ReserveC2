@@ -8,9 +8,10 @@ namespace Reservoom2.Models
 {
     public class Reservation
     {
-        public Reservation(RoomId roomId, string Username, DateTime startDate, DateTime endDate)
+        public Reservation(RoomId roomId, string username, DateTime startDate, DateTime endDate)
         {
             RoomId = roomId;
+            Username = username;
             StartDate = startDate;
             EndDate = endDate;
         }

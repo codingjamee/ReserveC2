@@ -17,7 +17,6 @@ namespace Reservoom2.Models
         {
             Name = name;
             _reservationBook = new ReservationBook();
-
         }
 
         public IEnumerable<Reservation> GetReservationsForUser(string username)
