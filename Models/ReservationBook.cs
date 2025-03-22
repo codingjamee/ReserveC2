@@ -22,6 +22,13 @@ namespace Reservoom2.Models
 
         public void AddReservation(Reservation reservation)
         {
+            foreach (Reservation existingReservation in _reservations)
+            {
+                if(existingReservation.Conflicts(reservation))
+                {
+                    throw new ReservationConflictException();
+                }
+            }
             _reservations.Add(reservation);
         }
     }
