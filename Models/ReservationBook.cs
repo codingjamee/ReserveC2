@@ -27,7 +27,7 @@ namespace Reservoom2.Models
             {
                 if(existingReservation.Conflicts(reservation))
                 {
-                    throw new ReservationConflictException();
+                    throw new ReservationConflictException(existingReservation, reservation);
                 }
             }
             _reservations.Add(reservation);

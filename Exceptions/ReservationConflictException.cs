@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Reservoom2.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -9,6 +10,14 @@ namespace Reservoom2.Exceptions
 {
     public class ReservationConflictException : Exception
     {
+        public Reservation ExistingReservation
+        {
+            get;
+        } 
+        public Reservation IncomingReservation
+        {
+            get;
+        }
         public ReservationConflictException()
         {
         }

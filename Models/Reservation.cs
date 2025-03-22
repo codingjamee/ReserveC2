@@ -32,5 +32,15 @@ namespace Reservoom2.Models
             get;
         }
         public TimeSpan Length => EndDate.Subtract(StartDate);
+
+        public bool Conflicts(Reservation reservation)
+        {
+            if (reservation.RoomId != RoomId)
+            {
+                return false;
+            }
+
+            return reservation.StartDate < EndDate && reservation.EndDate > StartDate;
+        }
     }
 }
