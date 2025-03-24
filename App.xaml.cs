@@ -41,7 +41,7 @@ namespace Reservoom2
 
             }
           
-            IEnumerable<Reservation> reservations = hotel.GetReservationsForUser("Some Guest");
+            IEnumerable<Reservation> reservations = hotel.GetAllReservations("Some Guest");
 
             base.OnStartup(e);
         }

@@ -9,28 +9,28 @@ namespace Reservoom2.Models
 {
     public class ReservationBook
     {
-        private readonly List<Reservation> _reservations;
+        private readonly List<Reservation> _reservationBook;
 
         public ReservationBook()
         {
-            _reservations = new List<Reservation>();
+            _reservationBook = new List<Reservation>();
         }
 
-        public IEnumerable<Reservation> GetReservationsForUser(string username)
+        public IEnumerable<Reservation> GetAllReservations()
         {
-            return _reservations.Where(r => r.Username == username);
+            return _reservationBook;
         }
 
         public void AddReservation(Reservation reservation)
         {
-            foreach (Reservation existingReservation in _reservations)
+            foreach (Reservation existingReservation in _reservationBook)
             {
                 if(existingReservation.Conflicts(reservation))
                 {
                     throw new ReservationConflictException(existingReservation, reservation);
                 }
             }
-            _reservations.Add(reservation);
+            _reservationBook.Add(reservation);
         }
     }
 }
